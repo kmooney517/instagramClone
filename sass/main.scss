@@ -1,0 +1,21 @@
+@import "bourbon";
+@import "neat";
+@import "font-awesome";
+
+body {
+  background: #e2ebf3;
+}
+
+.app{
+  @include outer-container;
+  .homePage{
+    @include span-columns(3);
+    &.mainImages{
+      @include span-columns(1 of 3);
+    }
+  }
+}
+
+.mainPictures{
+  width: 100%;
+}
