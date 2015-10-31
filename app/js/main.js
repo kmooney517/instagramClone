@@ -375,21 +375,36 @@ var AddNewView = _react2["default"].createClass({
         )
       ),
       _react2["default"].createElement(
+        "p",
+        { className: "formTitle" },
+        "Submit A New Photo"
+      ),
+      _react2["default"].createElement(
         "div",
-        null,
-        "add photo page"
-      ),
-      _react2["default"].createElement(
-        "button",
-        { onClick: function () {
-            return _this.addBackHandler();
-          } },
-        "Back Home"
-      ),
-      _react2["default"].createElement(
-        "button",
-        null,
-        "Upload Photo"
+        { className: "AddPhotoForm" },
+        _react2["default"].createElement(
+          "form",
+          { className: "newPicForm" },
+          _react2["default"].createElement("input", { type: "text", placeholder: "Title:", className: "giveTitle" }),
+          _react2["default"].createElement("input", { type: "text", placeholder: "Image URL:", className: "giveImage" }),
+          _react2["default"].createElement("textarea", { type: "text", placeholder: "Description:", className: "giveDescription" })
+        ),
+        _react2["default"].createElement(
+          "div",
+          { className: "submissions" },
+          _react2["default"].createElement(
+            "button",
+            { onClick: function () {
+                return _this.addBackHandler();
+              } },
+            "Cancel"
+          ),
+          _react2["default"].createElement(
+            "button",
+            null,
+            "Upload Photo"
+          )
+        )
       ),
       _react2["default"].createElement(
         "div",
@@ -491,21 +506,36 @@ var EditView = _react2["default"].createClass({
         )
       ),
       _react2["default"].createElement(
+        "p",
+        { className: "formTitle" },
+        "Edit The Current Photo"
+      ),
+      _react2["default"].createElement(
         "div",
-        { className: "formInfo" },
-        "Put form information here"
-      ),
-      _react2["default"].createElement(
-        "button",
-        { onClick: function () {
-            return _this.addBackHandler();
-          } },
-        "Back Home"
-      ),
-      _react2["default"].createElement(
-        "button",
-        null,
-        "Save Changes"
+        { className: "AddPhotoForm" },
+        _react2["default"].createElement(
+          "form",
+          { className: "newPicForm" },
+          _react2["default"].createElement("input", { type: "text", placeholder: "Title:", className: "giveTitle" }),
+          _react2["default"].createElement("input", { type: "text", placeholder: "Image URL:", className: "giveImage" }),
+          _react2["default"].createElement("textarea", { type: "text", placeholder: "Description:", className: "giveDescription" })
+        ),
+        _react2["default"].createElement(
+          "div",
+          { className: "submissions" },
+          _react2["default"].createElement(
+            "button",
+            { onClick: function () {
+                return _this.addBackHandler();
+              } },
+            "Cancel"
+          ),
+          _react2["default"].createElement(
+            "button",
+            null,
+            "Upload Photo"
+          )
+        )
       ),
       _react2["default"].createElement(
         "div",

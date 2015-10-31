@@ -30,10 +30,21 @@ let EditView = React.createClass({
           </div>
         </div>
 
-        <div className="formInfo">Put form information here</div>
-        <button onClick={() => this.addBackHandler()}>Back Home</button>
-        <button>Save Changes</button>
-      
+        <p className="formTitle">Edit The Current Photo</p>
+
+        <div className="AddPhotoForm">
+          <form className="newPicForm">
+            <input type="text" placeholder="Title:" className="giveTitle"></input>
+            <input type="text" placeholder="Image URL:" className="giveImage"></input>
+            <textarea type="text" placeholder="Description:" className="giveDescription"></textarea>
+          </form>
+
+          <div className="submissions">
+            <button onClick={() => this.addBackHandler()}>Cancel</button>
+            <button>Upload Photo</button>
+          </div>
+        </div>
+
         <div className="footer">
           <p>Created by Kevin Mooney</p>
         </div>

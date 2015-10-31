@@ -30,9 +30,20 @@ let AddNewView = React.createClass({
           </div>
         </div>
 
-        <div>add photo page</div>
-        <button onClick={() => this.addBackHandler()}>Back Home</button>
-        <button>Upload Photo</button>
+        <p className="formTitle">Submit A New Photo</p>
+
+        <div className="AddPhotoForm">
+          <form className="newPicForm">
+            <input type="text" placeholder="Title:" className="giveTitle"></input>
+            <input type="text" placeholder="Image URL:" className="giveImage"></input>
+            <textarea type="text" placeholder="Description:" className="giveDescription"></textarea>
+          </form>
+
+          <div className="submissions">
+            <button onClick={() => this.addBackHandler()}>Cancel</button>
+            <button>Upload Photo</button>
+          </div>
+        </div>
 
         <div className="footer">
           <p>Created by Kevin Mooney</p>

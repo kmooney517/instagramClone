@@ -43,6 +43,9 @@ button{
   li{
     display: inline-block;
     margin-right: 10%;
+    &:hover{
+      color: #1FC8FB;
+    }
   }
 }
 
@@ -118,11 +121,57 @@ button{
   color: white;
   button{
     margin-right: 25px;
+    &:hover{
+      color: #1FC8FB;
+    }
   }
 }
 
+/******************************************** Upload New Photo ***********************/
 
+.formTitle{
+  text-align: center;
+  font-size: 32px;
+  color: #660C06;
+}
 
+.newPicForm{
+  margin-left: 20%;
+  margin-right: 20%;
+  input{
+    display: block;
+    margin-bottom: 15px;
+    height: 25px;
+    border-radius: 3px;
+  }
+  .giveTitle {
+    width: 80%;
+  }
+  .giveImage {
+    width: 80%;
+  }
+  .giveDescription{
+    width: 100%;
+    height: 250px;
+  }
+}
+
+.submissions{
+  text-align: center;
+  button{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #2C413D;
+    margin-right: 30px;
+    border-radius: 3px;
+    background-color: white;
+
+    &:hover{
+      color: white;
+      background-color: #2C413D;
+    }
+  }
+}
 
 
 

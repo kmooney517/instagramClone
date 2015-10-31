@@ -2058,6 +2058,8 @@ button {
 .navLinks li {
   display: inline-block;
   margin-right: 10%; }
+  .navLinks li:hover {
+    color: #1FC8FB; }
 
 /************************************* Footer *************************/
 .footer {
@@ -2147,5 +2149,42 @@ button {
   color: white; }
   .navBtns button {
     margin-right: 25px; }
+    .navBtns button:hover {
+      color: #1FC8FB; }
+
+/******************************************** Upload New Photo ***********************/
+.formTitle {
+  text-align: center;
+  font-size: 32px;
+  color: #660C06; }
+
+.newPicForm {
+  margin-left: 20%;
+  margin-right: 20%; }
+  .newPicForm input {
+    display: block;
+    margin-bottom: 15px;
+    height: 25px;
+    border-radius: 3px; }
+  .newPicForm .giveTitle {
+    width: 80%; }
+  .newPicForm .giveImage {
+    width: 80%; }
+  .newPicForm .giveDescription {
+    width: 100%;
+    height: 250px; }
+
+.submissions {
+  text-align: center; }
+  .submissions button {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #2C413D;
+    margin-right: 30px;
+    border-radius: 3px;
+    background-color: white; }
+    .submissions button:hover {
+      color: white;
+      background-color: #2C413D; }
 
 /*# sourceMappingURL=main.css.map */
