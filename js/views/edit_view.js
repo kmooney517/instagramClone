@@ -11,6 +11,10 @@ let EditView = React.createClass({
     this.props.onAddClick();
   },
 
+  addSaveHandler() {
+    this.props.onSaveClick();
+  },
+
   render() {
     return (
       <div className="editPage">
@@ -41,7 +45,7 @@ let EditView = React.createClass({
 
           <div className="submissions">
             <button onClick={() => this.addBackHandler()}>Cancel</button>
-            <button>Upload Photo</button>
+            <button onClick={() => this.addSaveHandler()}>Save Changes</button>
           </div>
         </div>
 

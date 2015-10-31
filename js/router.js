@@ -96,11 +96,26 @@ export default Backbone.Router.extend({
     );
   },
 
-  changePicture() {
+  changePicture(id) {
+    console.log(id);
+
     this.render(<EditView
       onAddClick={() => this.goto('addNew')}
-      onBackClick={(id) => this.goto('')}/>
-
+      onBackClick={(id) => this.goto('')}
+      onSaveClick={(id) => {
+        let newTitle = document.querySelector('.giveTitle').value;
+        let newPictureLink = document.querySelector('.giveImage').value;
+        let newDescription = document.querySelector('.giveDescription').value;
+        let editUpload = new PictureModel ({
+          objectId: id,
+          Title: newTitle,
+          PictureLink: newPictureLink,
+          Description: newDescription,
+        });
+        editUpload.save();
+        this.goto('');
+      }
+    }/>
     );
   },
 

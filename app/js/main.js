@@ -284,8 +284,10 @@ exports['default'] = _backbone2['default'].Router.extend({
       } }));
   },
 
-  changePicture: function changePicture() {
+  changePicture: function changePicture(id) {
     var _this4 = this;
+
+    console.log(id);
 
     this.render(_react2['default'].createElement(_viewsEdit_view2['default'], {
       onAddClick: function () {
@@ -293,6 +295,19 @@ exports['default'] = _backbone2['default'].Router.extend({
       },
       onBackClick: function (id) {
         return _this4.goto('');
+      },
+      onSaveClick: function (id) {
+        var newTitle = document.querySelector('.giveTitle').value;
+        var newPictureLink = document.querySelector('.giveImage').value;
+        var newDescription = document.querySelector('.giveDescription').value;
+        var editUpload = new _resourcesPicture_model2['default']({
+          objectId: id,
+          Title: newTitle,
+          PictureLink: newPictureLink,
+          Description: newDescription
+        });
+        editUpload.save();
+        _this4.goto('');
       } }));
   },
 
@@ -464,6 +479,10 @@ var EditView = _react2["default"].createClass({
     this.props.onAddClick();
   },
 
+  addSaveHandler: function addSaveHandler() {
+    this.props.onSaveClick();
+  },
+
   render: function render() {
     var _this = this;
 
@@ -550,8 +569,10 @@ var EditView = _react2["default"].createClass({
           ),
           _react2["default"].createElement(
             "button",
-            null,
-            "Upload Photo"
+            { onClick: function () {
+                return _this.addSaveHandler();
+              } },
+            "Save Changes"
           )
         )
       ),
