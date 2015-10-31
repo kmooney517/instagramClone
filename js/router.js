@@ -18,7 +18,7 @@ export default Backbone.Router.extend({
     ""              : "showHome",
     "single/:id"    : "showSinglePicture",
     "addNew"        : "addNewPicture",
-    "editImage/:id"     : "changePicture"
+    "editImage/:id" : "changePicture"
   },
 
   initialize(appElement) {
@@ -42,6 +42,7 @@ export default Backbone.Router.extend({
     this.image.fetch().then(() => {
       this.render(<HomeView 
         images={this.image.toJSON()}
+        onBackClick={() => this.goto('')}
         onSinglePicClick={(id) => this.goto('single/' + id)}
         onAddClick={() => this.goto('addNew')}/>
       );
@@ -54,8 +55,9 @@ export default Backbone.Router.extend({
     if (abc) {
       this.render(
         <SingleView
+          onAddClick={() => this.goto('addNew')}
           onBackClick={() => this.goto('')}
-          onEditClick={() => this.goto('editImage')}
+          onEditClick={() => this.goto('editImage/' + id)}
           images={abc.toJSON()}/>
       );
     } else {
@@ -63,8 +65,9 @@ export default Backbone.Router.extend({
       abc.fetch().then(() => {
         this.render(
           <SingleView
+          onAddClick={() => this.goto('addNew')}
           onBackClick={() => this.goto('')}
-          onEditClick={() => this.goto('editImage')}
+          onEditClick={() => this.goto('editImage/' + id)}
           images={abc.toJSON()}/>
         );
       });
@@ -73,12 +76,14 @@ export default Backbone.Router.extend({
 
   addNewPicture() {
     this.render(<AddNewView
+      onAddClick={() => this.goto('addNew')}
       onBackClick={() => this.goto('')}/>
     );
   },
 
   changePicture() {
     this.render(<EditView
+      onAddClick={() => this.goto('addNew')}
       onBackClick={(id) => this.goto('')}/>
 
     );

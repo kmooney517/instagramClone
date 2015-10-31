@@ -213,6 +213,9 @@ exports['default'] = _backbone2['default'].Router.extend({
     this.image.fetch().then(function () {
       _this.render(_react2['default'].createElement(_viewsHome_view2['default'], {
         images: _this.image.toJSON(),
+        onBackClick: function () {
+          return _this.goto('');
+        },
         onSinglePicClick: function (id) {
           return _this.goto('single/' + id);
         },
@@ -229,22 +232,28 @@ exports['default'] = _backbone2['default'].Router.extend({
 
     if (abc) {
       this.render(_react2['default'].createElement(_viewsSingle_view2['default'], {
+        onAddClick: function () {
+          return _this2.goto('addNew');
+        },
         onBackClick: function () {
           return _this2.goto('');
         },
         onEditClick: function () {
-          return _this2.goto('editImage');
+          return _this2.goto('editImage/' + id);
         },
         images: abc.toJSON() }));
     } else {
       abc = this.image.add({ objectId: id });
       abc.fetch().then(function () {
         _this2.render(_react2['default'].createElement(_viewsSingle_view2['default'], {
+          onAddClick: function () {
+            return _this2.goto('addNew');
+          },
           onBackClick: function () {
             return _this2.goto('');
           },
           onEditClick: function () {
-            return _this2.goto('editImage');
+            return _this2.goto('editImage/' + id);
           },
           images: abc.toJSON() }));
       });
@@ -255,6 +264,9 @@ exports['default'] = _backbone2['default'].Router.extend({
     var _this3 = this;
 
     this.render(_react2['default'].createElement(_viewsAddNew_view2['default'], {
+      onAddClick: function () {
+        return _this3.goto('addNew');
+      },
       onBackClick: function () {
         return _this3.goto('');
       } }));
@@ -264,6 +276,9 @@ exports['default'] = _backbone2['default'].Router.extend({
     var _this4 = this;
 
     this.render(_react2['default'].createElement(_viewsEdit_view2['default'], {
+      onAddClick: function () {
+        return _this4.goto('addNew');
+      },
       onBackClick: function (id) {
         return _this4.goto('');
       } }));
@@ -296,16 +311,73 @@ var AddNewView = _react2["default"].createClass({
     this.props.onBackClick();
   },
 
+  addPicClickHandler: function addPicClickHandler() {
+    this.props.onAddClick();
+  },
+
   render: function render() {
     var _this = this;
 
     return _react2["default"].createElement(
       "div",
-      { className: "singleImage" },
+      { className: "uploadNew" },
+      _react2["default"].createElement(
+        "div",
+        { className: "header" },
+        _react2["default"].createElement(
+          "div",
+          { className: "logo" },
+          _react2["default"].createElement("img", { src: "http://i0.wp.com/sapiengames.com/wp-content/uploads/2014/03/watman.jpg?resize=700%2C525" })
+        ),
+        _react2["default"].createElement(
+          "div",
+          { className: "navLinks" },
+          _react2["default"].createElement(
+            "ul",
+            null,
+            _react2["default"].createElement(
+              "li",
+              { onClick: function () {
+                  return _this.addBackHandler();
+                } },
+              _react2["default"].createElement(
+                "button",
+                null,
+                "Home"
+              )
+            ),
+            _react2["default"].createElement(
+              "li",
+              { onClick: function () {
+                  return _this.addPicClickHandler();
+                } },
+              _react2["default"].createElement(
+                "button",
+                null,
+                "Upload New Image"
+              )
+            ),
+            _react2["default"].createElement(
+              "li",
+              null,
+              _react2["default"].createElement(
+                "a",
+                { href: "https://en.wikipedia.org/wiki/Wat" },
+                "Wat"
+              )
+            ),
+            _react2["default"].createElement(
+              "li",
+              null,
+              "InstaClone"
+            )
+          )
+        )
+      ),
       _react2["default"].createElement(
         "div",
         null,
-        "add page"
+        "add photo page"
       ),
       _react2["default"].createElement(
         "button",
@@ -313,6 +385,20 @@ var AddNewView = _react2["default"].createClass({
             return _this.addBackHandler();
           } },
         "Back Home"
+      ),
+      _react2["default"].createElement(
+        "button",
+        null,
+        "Upload Photo"
+      ),
+      _react2["default"].createElement(
+        "div",
+        { className: "footer" },
+        _react2["default"].createElement(
+          "p",
+          null,
+          "Created by Kevin Mooney"
+        )
       )
     );
   }
@@ -322,54 +408,120 @@ exports["default"] = AddNewView;
 module.exports = exports["default"];
 
 },{"react":172}],8:[function(require,module,exports){
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var EditView = _react2['default'].createClass({
-  displayName: 'EditView',
+var EditView = _react2["default"].createClass({
+  displayName: "EditView",
 
   addBackHandler: function addBackHandler() {
     this.props.onBackClick();
   },
 
+  addPicClickHandler: function addPicClickHandler() {
+    this.props.onAddClick();
+  },
+
   render: function render() {
     var _this = this;
 
-    return _react2['default'].createElement(
-      'div',
-      null,
-      _react2['default'].createElement(
-        'div',
-        null,
-        'edit page'
+    return _react2["default"].createElement(
+      "div",
+      { className: "editPage" },
+      _react2["default"].createElement(
+        "div",
+        { className: "header" },
+        _react2["default"].createElement(
+          "div",
+          { className: "logo" },
+          _react2["default"].createElement("img", { src: "http://i0.wp.com/sapiengames.com/wp-content/uploads/2014/03/watman.jpg?resize=700%2C525" })
+        ),
+        _react2["default"].createElement(
+          "div",
+          { className: "navLinks" },
+          _react2["default"].createElement(
+            "ul",
+            null,
+            _react2["default"].createElement(
+              "li",
+              { onClick: function () {
+                  return _this.addBackHandler();
+                } },
+              _react2["default"].createElement(
+                "button",
+                null,
+                "Home"
+              )
+            ),
+            _react2["default"].createElement(
+              "li",
+              { onClick: function () {
+                  return _this.addPicClickHandler();
+                } },
+              _react2["default"].createElement(
+                "button",
+                null,
+                "Upload New Image"
+              )
+            ),
+            _react2["default"].createElement(
+              "li",
+              null,
+              _react2["default"].createElement(
+                "a",
+                { href: "https://en.wikipedia.org/wiki/Wat" },
+                "Wat"
+              )
+            ),
+            _react2["default"].createElement(
+              "li",
+              null,
+              "InstaClone"
+            )
+          )
+        )
       ),
-      _react2['default'].createElement(
-        'button',
+      _react2["default"].createElement(
+        "div",
+        { className: "formInfo" },
+        "Put form information here"
+      ),
+      _react2["default"].createElement(
+        "button",
         { onClick: function () {
             return _this.addBackHandler();
           } },
-        'Back Home'
+        "Back Home"
       ),
-      _react2['default'].createElement(
-        'button',
+      _react2["default"].createElement(
+        "button",
         null,
-        'Save Changes'
+        "Save Changes"
+      ),
+      _react2["default"].createElement(
+        "div",
+        { className: "footer" },
+        _react2["default"].createElement(
+          "p",
+          null,
+          "Created by Kevin Mooney"
+        )
       )
     );
   }
 });
 
-exports['default'] = EditView;
-module.exports = exports['default'];
+exports["default"] = EditView;
+module.exports = exports["default"];
 
 },{"react":172}],9:[function(require,module,exports){
 "use strict";
@@ -395,6 +547,10 @@ var HomeView = _react2["default"].createClass({
     this.props.onAddClick();
   },
 
+  addBackHandler: function addBackHandler() {
+    this.props.onBackClick();
+  },
+
   processData: function processData(data) {
     var _this = this;
 
@@ -403,13 +559,8 @@ var HomeView = _react2["default"].createClass({
       { key: data.objectId,
         onClick: function () {
           return _this.singlePicClickHandler(data.objectId);
-        }, className: "mainImages" },
-      _react2["default"].createElement(
-        "h2",
-        null,
-        data.Title
-      ),
-      _react2["default"].createElement("img", { className: "mainPictures",
+        }, className: "tile" },
+      _react2["default"].createElement("img", { className: "photo",
         src: data.PictureLink })
     );
   },
@@ -420,13 +571,72 @@ var HomeView = _react2["default"].createClass({
     return _react2["default"].createElement(
       "div",
       { className: "homePage" },
-      this.props.images.map(this.processData),
       _react2["default"].createElement(
-        "button",
-        { onClick: function () {
-            return _this2.addPicClickHandler();
-          } },
-        "Add"
+        "div",
+        { className: "header" },
+        _react2["default"].createElement(
+          "div",
+          { className: "logo" },
+          _react2["default"].createElement("img", { src: "http://i0.wp.com/sapiengames.com/wp-content/uploads/2014/03/watman.jpg?resize=700%2C525" })
+        ),
+        _react2["default"].createElement(
+          "div",
+          { className: "navLinks" },
+          _react2["default"].createElement(
+            "ul",
+            null,
+            _react2["default"].createElement(
+              "li",
+              { onClick: function () {
+                  return _this2.addBackHandler();
+                } },
+              _react2["default"].createElement(
+                "button",
+                null,
+                "Home"
+              )
+            ),
+            _react2["default"].createElement(
+              "li",
+              { onClick: function () {
+                  return _this2.addPicClickHandler();
+                } },
+              _react2["default"].createElement(
+                "button",
+                null,
+                "Upload New Image"
+              )
+            ),
+            _react2["default"].createElement(
+              "li",
+              null,
+              _react2["default"].createElement(
+                "a",
+                { href: "https://en.wikipedia.org/wiki/Wat" },
+                "Wat"
+              )
+            ),
+            _react2["default"].createElement(
+              "li",
+              null,
+              "InstaClone"
+            )
+          )
+        )
+      ),
+      _react2["default"].createElement(
+        "div",
+        { className: "imageTiles" },
+        this.props.images.map(this.processData)
+      ),
+      _react2["default"].createElement(
+        "div",
+        { className: "footer" },
+        _react2["default"].createElement(
+          "p",
+          null,
+          "Created by Kevin Mooney"
+        )
       )
     );
   }
@@ -459,26 +669,118 @@ var SingleView = _react2["default"].createClass({
     this.props.onEditClick();
   },
 
+  addPicClickHandler: function addPicClickHandler() {
+    this.props.onAddClick();
+  },
+
   render: function render(data) {
     var _this = this;
 
     return _react2["default"].createElement(
       "div",
       { className: "singleImagePage", key: this.props.images.objectId },
-      _react2["default"].createElement("img", { src: this.props.images.PictureLink }),
       _react2["default"].createElement(
-        "button",
-        { onClick: function () {
-            return _this.addBackHandler();
-          } },
-        "Back Home"
+        "div",
+        { className: "header" },
+        _react2["default"].createElement(
+          "div",
+          { className: "logo" },
+          _react2["default"].createElement("img", { src: "http://i0.wp.com/sapiengames.com/wp-content/uploads/2014/03/watman.jpg?resize=700%2C525" })
+        ),
+        _react2["default"].createElement(
+          "div",
+          { className: "navLinks" },
+          _react2["default"].createElement(
+            "ul",
+            null,
+            _react2["default"].createElement(
+              "li",
+              { onClick: function () {
+                  return _this.addBackHandler();
+                } },
+              _react2["default"].createElement(
+                "button",
+                null,
+                "Home"
+              )
+            ),
+            _react2["default"].createElement(
+              "li",
+              { onClick: function () {
+                  return _this.addPicClickHandler();
+                } },
+              _react2["default"].createElement(
+                "button",
+                null,
+                "Upload New Image"
+              )
+            ),
+            _react2["default"].createElement(
+              "li",
+              null,
+              _react2["default"].createElement(
+                "a",
+                { href: "https://en.wikipedia.org/wiki/Wat" },
+                "Wat"
+              )
+            ),
+            _react2["default"].createElement(
+              "li",
+              null,
+              "InstaClone"
+            )
+          )
+        )
       ),
       _react2["default"].createElement(
-        "button",
-        { onClick: function () {
-            return _this.addEditHandler();
-          } },
-        "Edit Picture"
+        "div",
+        { className: "onePicSetUp" },
+        _react2["default"].createElement(
+          "div",
+          { className: "singleImage" },
+          _react2["default"].createElement("img", { className: "oneImage", src: this.props.images.PictureLink })
+        ),
+        _react2["default"].createElement(
+          "div",
+          { className: "imageInfo" },
+          _react2["default"].createElement(
+            "div",
+            { className: "title" },
+            this.props.images.Title
+          ),
+          _react2["default"].createElement(
+            "div",
+            { className: "description" },
+            this.props.images.Description
+          ),
+          _react2["default"].createElement(
+            "div",
+            { className: "navBtns" },
+            _react2["default"].createElement(
+              "button",
+              { onClick: function () {
+                  return _this.addBackHandler();
+                } },
+              "Back Home"
+            ),
+            _react2["default"].createElement(
+              "button",
+              { onClick: function () {
+                  return _this.addEditHandler();
+                } },
+              "Edit Submission"
+            )
+          )
+        )
+      ),
+      _react2["default"].createElement(
+        "div",
+        { className: "footer" },
+        _react2["default"].createElement(
+          "p",
+          null,
+          "Created by Kevin Mooney"
+        )
       )
     );
   }
@@ -500,8 +802,8 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-exports["default"] = _react2["default"].createClass({
-  displayName: "spinner",
+var Spinner = _react2["default"].createClass({
+  displayName: "Spinner",
 
   render: function render() {
     return _react2["default"].createElement(
@@ -512,6 +814,8 @@ exports["default"] = _react2["default"].createClass({
   }
 
 });
+
+exports["default"] = Spinner;
 module.exports = exports["default"];
 
 },{"react":172}],12:[function(require,module,exports){

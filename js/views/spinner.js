@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default React.createClass({
+let Spinner = React.createClass({
 
   render() {
     return (
@@ -11,3 +11,5 @@ export default React.createClass({
   }
 
 });
+
+export default Spinner;
