@@ -11,9 +11,9 @@ let EditView = React.createClass({
     this.props.onAddClick();
   },
 
-  addSaveHandler() {
+  addSaveHandler(event) {
     this.props.onSaveClick();
-  },
+  }, 
 
   render() {
     return (
@@ -38,9 +38,9 @@ let EditView = React.createClass({
 
         <div className="AddPhotoForm">
           <form className="newPicForm">
-            <input type="text" placeholder="Title:" className="giveTitle"></input>
-            <input type="text" placeholder="Image URL:" className="giveImage"></input>
-            <textarea type="text" placeholder="Description:" className="giveDescription"></textarea>
+            <input type="text" className="giveTitle" placeholder="New Title:"></input>
+            <input type="text" className="giveImage" placeholder="New Image URL:"></input>
+            <textarea type="text" className="giveDescription" placeholder="New Description:"></textarea>
           </form>
 
           <div className="submissions">

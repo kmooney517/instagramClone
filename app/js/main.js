@@ -287,7 +287,7 @@ exports['default'] = _backbone2['default'].Router.extend({
   changePicture: function changePicture(id) {
     var _this4 = this;
 
-    console.log(id);
+    var bob = id;
 
     this.render(_react2['default'].createElement(_viewsEdit_view2['default'], {
       onAddClick: function () {
@@ -301,7 +301,7 @@ exports['default'] = _backbone2['default'].Router.extend({
         var newPictureLink = document.querySelector('.giveImage').value;
         var newDescription = document.querySelector('.giveDescription').value;
         var editUpload = new _resourcesPicture_model2['default']({
-          objectId: id,
+          objectId: bob,
           Title: newTitle,
           PictureLink: newPictureLink,
           Description: newDescription
@@ -479,7 +479,7 @@ var EditView = _react2["default"].createClass({
     this.props.onAddClick();
   },
 
-  addSaveHandler: function addSaveHandler() {
+  addSaveHandler: function addSaveHandler(event) {
     this.props.onSaveClick();
   },
 
@@ -553,9 +553,9 @@ var EditView = _react2["default"].createClass({
         _react2["default"].createElement(
           "form",
           { className: "newPicForm" },
-          _react2["default"].createElement("input", { type: "text", placeholder: "Title:", className: "giveTitle" }),
-          _react2["default"].createElement("input", { type: "text", placeholder: "Image URL:", className: "giveImage" }),
-          _react2["default"].createElement("textarea", { type: "text", placeholder: "Description:", className: "giveDescription" })
+          _react2["default"].createElement("input", { type: "text", className: "giveTitle", placeholder: "New Title:" }),
+          _react2["default"].createElement("input", { type: "text", className: "giveImage", placeholder: "New Image URL:" }),
+          _react2["default"].createElement("textarea", { type: "text", className: "giveDescription", placeholder: "New Description:" })
         ),
         _react2["default"].createElement(
           "div",

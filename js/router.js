@@ -75,8 +75,6 @@ export default Backbone.Router.extend({
   },
 
   addNewPicture() {
-
-
     this.render(<AddNewView
       onAddClick={() => this.goto('addNew')}
       onBackClick={() => this.goto('')}
@@ -97,7 +95,7 @@ export default Backbone.Router.extend({
   },
 
   changePicture(id) {
-    console.log(id);
+    let bob = id;
 
     this.render(<EditView
       onAddClick={() => this.goto('addNew')}
@@ -107,7 +105,7 @@ export default Backbone.Router.extend({
         let newPictureLink = document.querySelector('.giveImage').value;
         let newDescription = document.querySelector('.giveDescription').value;
         let editUpload = new PictureModel ({
-          objectId: id,
+          objectId: bob,
           Title: newTitle,
           PictureLink: newPictureLink,
           Description: newDescription,
