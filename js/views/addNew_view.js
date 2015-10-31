@@ -11,6 +11,10 @@ let AddNewView = React.createClass({
     this.props.onAddClick();
   },
 
+  addUploadHandler() {
+    this.props.onUploadClick();
+  },
+
   render() {
     return (
       <div className="uploadNew">
@@ -41,7 +45,7 @@ let AddNewView = React.createClass({
 
           <div className="submissions">
             <button onClick={() => this.addBackHandler()}>Cancel</button>
-            <button>Upload Photo</button>
+            <button onClick={() => this.addUploadHandler()}>Upload Photo</button>
           </div>
         </div>
 

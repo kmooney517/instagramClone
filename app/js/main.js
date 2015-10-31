@@ -269,6 +269,18 @@ exports['default'] = _backbone2['default'].Router.extend({
       },
       onBackClick: function () {
         return _this3.goto('');
+      },
+      onUploadClick: function () {
+        var newTitle = document.querySelector('.giveTitle').value;
+        var newPictureLink = document.querySelector('.giveImage').value;
+        var newDescription = document.querySelector('.giveDescription').value;
+        var newUpload = new _resourcesPicture_model2['default']({
+          Title: newTitle,
+          PictureLink: newPictureLink,
+          Description: newDescription
+        });
+        newUpload.save();
+        _this3.goto('');
       } }));
   },
 
@@ -313,6 +325,10 @@ var AddNewView = _react2["default"].createClass({
 
   addPicClickHandler: function addPicClickHandler() {
     this.props.onAddClick();
+  },
+
+  addUploadHandler: function addUploadHandler() {
+    this.props.onUploadClick();
   },
 
   render: function render() {
@@ -401,7 +417,9 @@ var AddNewView = _react2["default"].createClass({
           ),
           _react2["default"].createElement(
             "button",
-            null,
+            { onClick: function () {
+                return _this.addUploadHandler();
+              } },
             "Upload Photo"
           )
         )

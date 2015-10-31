@@ -75,9 +75,24 @@ export default Backbone.Router.extend({
   },
 
   addNewPicture() {
+
+
     this.render(<AddNewView
       onAddClick={() => this.goto('addNew')}
-      onBackClick={() => this.goto('')}/>
+      onBackClick={() => this.goto('')}
+      onUploadClick={() => {
+        let newTitle = document.querySelector('.giveTitle').value;
+        let newPictureLink = document.querySelector('.giveImage').value;
+        let newDescription = document.querySelector('.giveDescription').value;
+        let newUpload = new PictureModel ({
+          Title: newTitle,
+          PictureLink: newPictureLink,
+          Description: newDescription
+        });
+        newUpload.save();
+        this.goto('');
+      }
+      }/>
     );
   },
 
