@@ -15,6 +15,10 @@ let SingleView = React.createClass({
     this.props.onAddClick();
   },
 
+  addDeleteHandler() {
+    this.props.onDeleteClick();
+  },
+
   render(data) {
     return (
       <div className="singleImagePage" key={this.props.images.objectId}>
@@ -49,6 +53,7 @@ let SingleView = React.createClass({
             <div className="navBtns">
               <button onClick={() => this.addBackHandler()}>Back Home</button>
               <button onClick={() => this.addEditHandler()}>Edit Submission</button>
+              <button onClick={() => this.addDeleteHandler()}>Delete Post</button>
             </div>
           </div>
         </div>

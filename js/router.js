@@ -58,6 +58,13 @@ export default Backbone.Router.extend({
           onAddClick={() => this.goto('addNew')}
           onBackClick={() => this.goto('')}
           onEditClick={() => this.goto('editImage/' + id)}
+          onDeleteClick={() => 
+            {let deletedPic = new PictureModel ({
+              objectId: id
+            });
+              deletedPic.destroy();
+              this.goto('');
+            }}
           images={abc.toJSON()}/>
       );
     } else {

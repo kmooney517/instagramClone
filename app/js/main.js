@@ -241,6 +241,13 @@ exports['default'] = _backbone2['default'].Router.extend({
         onEditClick: function () {
           return _this2.goto('editImage/' + id);
         },
+        onDeleteClick: function () {
+          var deletedPic = new _resourcesPicture_model2['default']({
+            objectId: id
+          });
+          deletedPic.destroy();
+          _this2.goto('');
+        },
         images: abc.toJSON() }));
     } else {
       abc = this.image.add({ objectId: id });
@@ -742,6 +749,10 @@ var SingleView = _react2["default"].createClass({
     this.props.onAddClick();
   },
 
+  addDeleteHandler: function addDeleteHandler() {
+    this.props.onDeleteClick();
+  },
+
   render: function render(data) {
     var _this = this;
 
@@ -838,6 +849,13 @@ var SingleView = _react2["default"].createClass({
                   return _this.addEditHandler();
                 } },
               "Edit Submission"
+            ),
+            _react2["default"].createElement(
+              "button",
+              { onClick: function () {
+                  return _this.addDeleteHandler();
+                } },
+              "Delete Post"
             )
           )
         )
