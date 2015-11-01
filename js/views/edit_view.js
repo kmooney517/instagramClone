@@ -4,9 +4,9 @@ import React from 'react';
 let EditView = React.createClass({
 
   addSaveHandler(event) {
-    event.preventDefault();
-    this.props.onSaveClick(this.state.Title, this.state.Url, this.state.About);
-  }, 
+    //event.preventDefault();
+    this.props.onSaveClick();
+  },
 
   getInitialState() {
     return {
@@ -17,7 +17,7 @@ let EditView = React.createClass({
   },
 
   updateTitle(event) {
-    let newMessage = event.target.value;
+    let newMessage = event.currentTarget.value;
 
     this.setState({
       Title: newMessage,
@@ -25,7 +25,7 @@ let EditView = React.createClass({
   },
 
   updateUrl(event) {
-    let newMessage = event.target.value;
+    let newMessage = event.currentTarget.value;
 
     this.setState({
       Url: newMessage,
@@ -33,7 +33,7 @@ let EditView = React.createClass({
   },
 
   updateDescription(event) {
-    let newMessage = event.target.value;
+    let newMessage = event.currentTarget.value;
 
     this.setState({
       Description: newMessage,

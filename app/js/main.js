@@ -479,8 +479,8 @@ var EditView = _react2["default"].createClass({
   displayName: "EditView",
 
   addSaveHandler: function addSaveHandler(event) {
-    event.preventDefault();
-    this.props.onSaveClick(this.state.Title, this.state.Url, this.state.About);
+    //event.preventDefault();
+    this.props.onSaveClick();
   },
 
   getInitialState: function getInitialState() {
@@ -492,7 +492,7 @@ var EditView = _react2["default"].createClass({
   },
 
   updateTitle: function updateTitle(event) {
-    var newMessage = event.target.value;
+    var newMessage = event.currentTarget.value;
 
     this.setState({
       Title: newMessage
@@ -500,7 +500,7 @@ var EditView = _react2["default"].createClass({
   },
 
   updateUrl: function updateUrl(event) {
-    var newMessage = event.target.value;
+    var newMessage = event.currentTarget.value;
 
     this.setState({
       Url: newMessage
@@ -508,7 +508,7 @@ var EditView = _react2["default"].createClass({
   },
 
   updateDescription: function updateDescription(event) {
-    var newMessage = event.target.value;
+    var newMessage = event.currentTarget.value;
 
     this.setState({
       Description: newMessage
