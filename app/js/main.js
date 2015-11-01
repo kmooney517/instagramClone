@@ -478,16 +478,49 @@ var _react2 = _interopRequireDefault(_react);
 var EditView = _react2["default"].createClass({
   displayName: "EditView",
 
+  addSaveHandler: function addSaveHandler(event) {
+    event.preventDefault();
+    this.props.onSaveClick(this.state.Title, this.state.Url, this.state.About);
+  },
+
+  getInitialState: function getInitialState() {
+    return {
+      Title: this.props.Title,
+      Url: this.props.PictureLink,
+      Description: this.props.Description
+    };
+  },
+
+  updateTitle: function updateTitle(event) {
+    var newMessage = event.target.value;
+
+    this.setState({
+      Title: newMessage
+    });
+  },
+
+  updateUrl: function updateUrl(event) {
+    var newMessage = event.target.value;
+
+    this.setState({
+      Url: newMessage
+    });
+  },
+
+  updateDescription: function updateDescription(event) {
+    var newMessage = event.target.value;
+
+    this.setState({
+      Description: newMessage
+    });
+  },
+
   addBackHandler: function addBackHandler() {
     this.props.onBackClick();
   },
 
   addPicClickHandler: function addPicClickHandler() {
     this.props.onAddClick();
-  },
-
-  addSaveHandler: function addSaveHandler(event) {
-    this.props.onSaveClick();
   },
 
   render: function render() {
@@ -560,9 +593,9 @@ var EditView = _react2["default"].createClass({
         _react2["default"].createElement(
           "form",
           { className: "newPicForm" },
-          _react2["default"].createElement("input", { type: "text", className: "giveTitle", placeholder: "New Title:" }),
-          _react2["default"].createElement("input", { type: "text", className: "giveImage", placeholder: "New Image URL:" }),
-          _react2["default"].createElement("textarea", { type: "text", className: "giveDescription", placeholder: "New Description:" })
+          _react2["default"].createElement("input", { onChange: this.updateTitle, value: this.state.Title, type: "text", className: "giveTitle", placeholder: "New Title:" }),
+          _react2["default"].createElement("input", { onChange: this.updateUrl, value: this.state.Url, type: "text", className: "giveImage", placeholder: "New Image URL:" }),
+          _react2["default"].createElement("textarea", { onChange: this.updateDescription, value: this.state.Description, type: "text", className: "giveDescription", placeholder: "New Description:" })
         ),
         _react2["default"].createElement(
           "div",

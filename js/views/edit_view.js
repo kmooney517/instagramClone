@@ -3,6 +3,43 @@ import React from 'react';
 
 let EditView = React.createClass({
 
+  addSaveHandler(event) {
+    event.preventDefault();
+    this.props.onSaveClick(this.state.Title, this.state.Url, this.state.About);
+  }, 
+
+  getInitialState() {
+    return {
+      Title: this.props.Title,
+      Url: this.props.PictureLink,
+      Description: this.props.Description
+    };
+  },
+
+  updateTitle(event) {
+    let newMessage = event.target.value;
+
+    this.setState({
+      Title: newMessage,
+    });
+  },
+
+  updateUrl(event) {
+    let newMessage = event.target.value;
+
+    this.setState({
+      Url: newMessage,
+    });
+  },
+
+  updateDescription(event) {
+    let newMessage = event.target.value;
+
+    this.setState({
+      Description: newMessage,
+    });
+  },
+
   addBackHandler() {
     this.props.onBackClick();
   },
@@ -11,9 +48,7 @@ let EditView = React.createClass({
     this.props.onAddClick();
   },
 
-  addSaveHandler(event) {
-    this.props.onSaveClick();
-  }, 
+
 
   render() {
     return (
@@ -38,9 +73,9 @@ let EditView = React.createClass({
 
         <div className="AddPhotoForm">
           <form className="newPicForm">
-            <input type="text" className="giveTitle" placeholder="New Title:"></input>
-            <input type="text" className="giveImage" placeholder="New Image URL:"></input>
-            <textarea type="text" className="giveDescription" placeholder="New Description:"></textarea>
+            <input onChange={this.updateTitle} value={this.state.Title} type="text" className="giveTitle" placeholder="New Title:"></input>
+            <input onChange={this.updateUrl} value={this.state.Url} type="text" className="giveImage" placeholder="New Image URL:"></input>
+            <textarea onChange={this.updateDescription} value={this.state.Description} type="text" className="giveDescription" placeholder="New Description:"></textarea>
           </form>
 
           <div className="submissions">
