@@ -1,6 +1,13 @@
 ## Welcome to My Project
 
-> I am your Readme.md file, you should probably update me.
+> Link: http://true-self.surge.sh/#
+
+> Project using Backbone, React, and React-DOM
+Project required at least four different routes:
+Home Page - shows a list of all images
+Detail Page - detailed view of your image
+Add Page - you can upload another image
+Edit Page - you can edit a current resource
 
 
 ## Usage
